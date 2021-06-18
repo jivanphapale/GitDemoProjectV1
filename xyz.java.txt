@@ -1,0 +1,141 @@
+
+
+Map-
+
+1) HashMap-
+
+-Insertion order is not preserved
+Data getting stored in Key and value pair
+Key must be unique
+
+
+ex-
+
+
+package CollectionPractice;
+
+import java.util.HashMap;
+import java.util.Set;
+
+public class MapCLassess {
+
+	public static void main(String[] args) {
+		
+		HashMap <Integer, String> hm=new HashMap<Integer, String>();
+		
+		hm.put(10, "Mumbai");
+		hm.put(20, "Pune");
+		hm.put(30, "Nashik");
+		hm.put(40, "Aurangabad");
+		
+		System.out.println(hm);
+
+
+        //Replace values base on key
+		 Set<Integer> key=hm.keySet();
+		 
+		 for (Integer keyval:key) {
+			 
+			 if(keyval==30) {
+				 
+				 hm.replace(30, "Goa");
+			 }
+		 }
+		 
+		 System.out.println("After replace " +hm);
+		 
+		 //Replace  value base value
+		 Collection<String> value=hm.values();
+		 
+		 for (String values:value) {
+			 
+			 if(values.equals("Nashik")) {
+				 
+				 hm.replace(30, "Mysoore");
+			 }
+		 }
+		 
+		 System.out.println("After replace " +hm);
+	}
+		 
+	}
+
+}
+
+Get Key & Values by using the Entry Interface
+
+ex-package CollectionPractice;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class MapCLassess {
+
+	public static void main(String[] args) {
+		
+		HashMap <Integer, String> hm=new HashMap<Integer, String>();
+		
+		hm.put(10, "Mumbai");
+		hm.put(20, "Pune");
+		hm.put(30, "Nashik");
+		hm.put(40, "Aurangabad");
+		
+		System.out.println(hm);
+
+		
+		Set<Entry<Integer, String>> keyvalue=hm.entrySet();
+		
+		for (Entry<Integer,String>KeyvaluePair:keyvalue)
+		{
+			
+			System.out.println(KeyvaluePair.getKey()+" "+KeyvaluePair.getValue());
+			
+		}
+		
+		
+	}
+
+}
+
+-To count the character using hashmap
+
+
+package CollectionPractice;
+
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map.Entry;
+import java.util.Set;
+
+public class MapCLassess {
+
+	public static void main(String[] args) {
+		
+		//
+		String s="Elephppehant";
+		
+		char[] chararray=s.toCharArray();
+		HashMap <Character, Integer> hm=new HashMap<Character, Integer>();
+		
+		for (char ch:chararray)
+		
+		{
+			if (hm.containsKey(ch)) {
+				
+				hm.put(ch,hm.get(ch)+1);
+				
+			}
+			else  {
+				
+				hm.put(ch, 1);
+			}
+		}
+		
+		System.out.println(hm);
+
+		
+	}
+
+}
